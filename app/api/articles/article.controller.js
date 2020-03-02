@@ -5,9 +5,9 @@ exports.create = (req, res) => {
     console.log("/article/create")
 
     let body = req.body
-
-    models.Articles.create({
-        u_id: body.id,
+    let u_id = parseInt(req.body.u_id, 10)
+    models.Article.create({
+        u_id: u_id,
         title: body.title,
         image: body.image,
         author: body.author,
@@ -38,7 +38,7 @@ exports.create = (req, res) => {
 exports.articles = (req, res) => {
     console.log("/article/articles")
 
-    let u_id = parseInt(req.query.u_id, 10)
+    let u_id = parseInt(req.body.u_id, 10)
 
     if(!u_id){
         return res.status(400).json({
@@ -46,7 +46,7 @@ exports.articles = (req, res) => {
         })
     }
 
-    models.Articles.findAll({
+    models.Article.findAll({
         where: {
             u_id: u_id
         }
@@ -56,7 +56,7 @@ exports.articles = (req, res) => {
             return res.status(400).json({err: 'No such articles'})
         }
 
-        console.log(result)
+        // console.log(result)
 
         return res.json({
             result

@@ -22,7 +22,7 @@ const User = sequelize.define('user', {
     password: Sequelize.STRING,
     salt: Sequelize.STRING,
     // image: Sequelize.STRING
-});
+})
 
 const Article = sequelize.define('article', {
     article_id: {
@@ -63,4 +63,9 @@ const Article = sequelize.define('article', {
 module.exports = {
     sequelize: sequelize,
     User: User
+}
+
+module.exports = {
+    sequelize: sequelize,
+    Article: Article
 }
