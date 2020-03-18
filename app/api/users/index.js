@@ -9,6 +9,12 @@ const controller = require('./user.controller')
 
 module.exports = router
 
+//for test
+//email: test@gmail.com
+//password: test
+
+//return to client: id, email
 router.post('/signUp', controller.signUp)
 
+//return to client: id, email
 router.post('/logIn', controller.logIn)

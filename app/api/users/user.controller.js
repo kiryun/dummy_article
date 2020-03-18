@@ -11,6 +11,7 @@ exports.signUp = (req, res) =>{
     let hashPassword = crypto.createHash("sha512").update(inputPassword + salt).digest("hex")
     // console.log(body.email)
     let email = body.email
+    
     models.User.create({
         email: email,
         password: hashPassword,

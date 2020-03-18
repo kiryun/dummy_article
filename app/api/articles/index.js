@@ -10,4 +10,4 @@ const controller = require('./article.controller')
 module.exports = router
 
 router.post('/create', controller.create)
-router.get('/articles', controller.articles)
+router.post('/articles', controller.articles)

@@ -9,23 +9,23 @@ exports.create = (req, res) => {
     models.Article.create({
         u_id: u_id,
         title: body.title,
-        image: body.image,
+        // image: body.image,
         author: body.author,
-        data_published: body.data_published,
+        // data_published: body.data_published,
         body: body.body,
-        publisher: body.publisher,
-        url: body.url
+        // publisher: body.publisher,
+        // url: body.url
     }).then(result => {
         res.status(201).json({
             article_id: result.dataValues.article_id,
             u_id: result.dataValues.id,
             title: result.dataValues.title,
-            image: result.dataValues.image,
+            // image: result.dataValues.image,
             author: result.dataValues.author,
-            data_published: result.dataValues.data_published,
+            // data_published: result.dataValues.data_published,
             body: result.dataValues.body,
-            publisher: result.dataValues.publisher,
-            url: result.dataValues.url
+            // publisher: result.dataValues.publisher,
+            // url: result.dataValues.url
         })
     }).catch(err => {
         console.log(err)

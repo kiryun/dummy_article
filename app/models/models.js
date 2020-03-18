@@ -39,12 +39,12 @@ const Article = sequelize.define('article', {
         }
     },
     title: Sequelize.STRING,
-    image: Sequelize.STRING,
+    // image: Sequelize.STRING,
     author: Sequelize.STRING,
-    data_published: Sequelize.STRING,
+    // data_published: Sequelize.STRING,
     body: Sequelize.STRING,
-    publisher: Sequelize.STRING,
-    url: Sequelize.STRING,
+    // publisher: Sequelize.STRING,
+    // url: Sequelize.STRING,
     
 })
 
@@ -62,10 +62,6 @@ const Article = sequelize.define('article', {
 
 module.exports = {
     sequelize: sequelize,
-    User: User
-}
-
-module.exports = {
-    sequelize: sequelize,
+    User: User,
     Article: Article
 }
