@@ -18,7 +18,7 @@ exports.create = (req, res) => {
     }).then(result => {
         res.status(201).json({
             article_id: result.dataValues.article_id,
-            u_id: result.dataValues.id,
+            u_id: result.dataValues.u_id,
             title: result.dataValues.title,
             // image: result.dataValues.image,
             author: result.dataValues.author,
@@ -58,7 +58,7 @@ exports.articles = (req, res) => {
 
         // console.log(result)
 
-        return res.json({
+        return res.status(201).json({
             result
         })
         
@@ -66,4 +66,35 @@ exports.articles = (req, res) => {
         console.log(err)
     })
     
+}
+
+//removeAll
+exports.removeAll = (req, res) => {
+    console.log("/article/removeAll")
+
+    // let u_id = parseInt(req.body.u_id, 10)
+    
+    let u_id = parseInt(req.params.u_id, 10)
+
+    if(!u_id){
+        return res.status(400).json({
+            err: 'Incorrect id'
+        })
+    }
+    
+    models.Article.destroy({
+        where: {
+            //u_id가 일치하는 모든 것
+            u_id: u_id
+        },
+
+        // table 구조는 남긴다면 true
+        truncate: true
+    }).then( () => {
+        return res.status(201).json({
+            success: true
+        })
+    }).catch(err => {
+        console.log(err)
+    })
 }

@@ -64,3 +64,45 @@ exports.logIn = (req, res) => {
         console.log(err)
     })
 }
+
+//회원 탈퇴
+exports.signOut = (req, res) => {
+  console.log("/user/signOut")
+
+  let body = req.body
+  console.log(body.email)
+
+  models.User.findOne({
+    where: {
+      email: body.email
+    }
+  }).then( result => {
+    if(!result){
+      console.log("없는 e-mail")
+      return res.status(400).json({err: 'No such user email'})
+    }
+
+    let dbPassword = result.dataValues.password
+    let inputPassword = body.password
+    let salt = result.dataValues.salt
+    let hashPassword = crypto.createHash("sha512").update(inputPassword + salt).digest("hex")
+    if(dbPassword === hashPassword){
+      console.log("비밀번호 일치")
+      models.User.destroy({
+        where: {
+          id: result.dataValues.id
+        }
+      }).then(() => {
+        return res.status(201).json({
+          success: true
+        })
+      })
+    }
+    else{
+      console.log("비밀번호 불일치")
+      res.status(400).json({err: 'Incorrect password'})
+    }
+  }).catch(err => {
+    console.log(err)
+  })
+}

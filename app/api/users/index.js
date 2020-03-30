@@ -18,3 +18,5 @@ router.post('/signUp', controller.signUp)
 
 //return to client: id, email
 router.post('/logIn', controller.logIn)
+
+router.post('/signOut', controller.signOut)

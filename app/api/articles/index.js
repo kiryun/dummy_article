@@ -11,3 +11,4 @@ module.exports = router
 
 router.post('/create', controller.create)
 router.post('/articles', controller.articles)
+router.post('/removeAll/:u_id', controller.removeAll)
