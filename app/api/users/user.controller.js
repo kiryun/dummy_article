@@ -3,7 +3,7 @@ const crypto = require('crypto')
 
 //회원가입
 exports.signUp = (req, res) =>{
-    console.log("/user/signUp")
+    console.log("/user/sign_up")
     let body = req.body
 
     let inputPassword = body.password
@@ -31,7 +31,7 @@ exports.signUp = (req, res) =>{
 //email, pw 일치하면
 //{id(user id), email} 응답.
 exports.logIn = (req, res) => {
-    console.log("/user/logIn")
+    console.log("/user/log_in")
 
     let body = req.body
     console.log(body.email)
@@ -67,7 +67,7 @@ exports.logIn = (req, res) => {
 
 //회원 탈퇴
 exports.signOut = (req, res) => {
-  console.log("/user/signOut")
+  console.log("/user/sign_out")
 
   let body = req.body
   console.log(body.email)

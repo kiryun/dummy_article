@@ -70,7 +70,7 @@ exports.articles = (req, res) => {
 
 //removeAll
 exports.removeAll = (req, res) => {
-    console.log("/article/removeAll")
+    console.log("/article/remove_all")
 
     // let u_id = parseInt(req.body.u_id, 10)
     

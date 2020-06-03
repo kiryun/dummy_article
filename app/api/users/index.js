@@ -14,9 +14,9 @@ module.exports = router
 //password: test
 
 //return to client: id, email
-router.post('/signUp', controller.signUp)
+router.post('/sign_up', controller.signUp)
 
 //return to client: id, email
-router.post('/logIn', controller.logIn)
+router.post('/log_in', controller.logIn)
 
-router.post('/signOut', controller.signOut)
+router.post('/sign_out', controller.signOut)
